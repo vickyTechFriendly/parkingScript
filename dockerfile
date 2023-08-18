@@ -7,5 +7,5 @@ COPY package*.json ./
 RUN npm install
 # Bundle app source
 COPY . .
-EXPOSE 3000 
-CMD [ "node", "parkingScript.js" ]
+# ejecutar los scripts
+CMD ["sh", "-c", "node token.js && node parkingScript.js"]

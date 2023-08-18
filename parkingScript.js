@@ -12,12 +12,13 @@ async function getOcupacion(){
     let cecos = "B149;B156;B157";
     let from = fecha.toISOString().slice(0, 19).replace('T', ' '); 
     let to = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    let nextToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTIzNTc1OTYsImV4cCI6MTY5MjM2MTE5Niwicm9sZXMiOlsiUk9MRV9PQ0NVUEFUSU9OIl0sInVzZXJuYW1lIjoiYXl1bnRhbWllbnRvYWxiYWNldGUifQ.pIQoXgzakZ1IVRBhks8Hu3yqwIDb61UAVYMjipx17CK_7NT8_4Vi0Jj6ZoqI6xwycA1Vwc5OdYowsyNvjmLJ8Iw7RY9lUQDt64SWUvVlzMex2kRmtOLeRNgw2IM43cnnJsGfa1GLUhabUl7OUbI92kVk3adZgtyv0xysCiqqgxDuJpMNycGhAmNOyORd63-unhJR6aNcYRV7WyFVGxJMnU_BluebZBzxUGmGE-keGdKBJprmtmQoG8fY7yauk-GoZ0-SRxLcGg02P1Nc2POK9q_udVTY96o_hBvZh2WzVGpK_1ef5ieZieYcUNxT2sd-wKPJ_yYdYswBSzXj3ZJvulQBwG9-s6LriweuOMBp0a6ngE91xpS4i2xp-JlKdAbMDKkbTh4nVDZeTI0UGDWNE0RstLP1E5xCWWdlnvaAGD3Fd5t9LKb2d6GU3GoI_e54qbjY5s42HTZ1Jim8HxNtBGQzSqvENSHwCXWOgSofiCmhi2q4fYDt1XAG05zNeM85_Oxzvf7RbtT-DiAWOWVo4GS_AOS0o-UkerhcMC11D2OopAUbyleMfkAA4OD2qpc_PtbrZN1PHpPiMK0Nd-Ob0vLkxtQdM9SECDaVGgq9K2S0BeP7MQak3h3jSYZ8v4_r8TxT3JZFb8iB4L8buNMUA_fnvamC76vbzy_HmQHK3co';
     const url = `https://data.apk2.es/api/parking-occupation/?cecos=${cecos}&from=${from}&to=${to}`;
 
     try{
         const response = await axios.get(url, { 
             headers: {
-                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTIzNTI5MzUsImV4cCI6MTY5MjM1NjUzNSwicm9sZXMiOlsiUk9MRV9PQ0NVUEFUSU9OIl0sInVzZXJuYW1lIjoiYXl1bnRhbWllbnRvYWxiYWNldGUifQ.xDqPHE96m4ruKHcgBrHFMEjLXIOC1IC0tJ0XHqmUPFDEb8AcUtXD1hoovywQJ7Ld2O7oQNm61DOVr0qmqfCamxH3LlbU4EaeTqOqYKgbPp4TY43QlwbuA1AbzJDSXimjZhlE-CFu2HKuJH5fPf9DTEqN8p7X4sWku18iPZvTjHGQrMk5O9YEisiOkOHtV0h8V4UJbfSLLrJtA2s8unOhoiReYMLKoTmNlx1VVBPNn1WtWBPv3dKWBL_ZW5tGyf64FUTqC-NQUMtSlUrG5BUwhtc4IQl2n_QqPmH4EQVwcKiQP3nAIuWiGeEezW5ECAW4oXCj22dqDCCgGL-JgbQZqzZwRleF1KyoU8NhYmza5jb9PR2KDgFnMsnuzkcXxS1zbWYxiVF7ZLCIMhakT5GAtx_qx0Ug2qGFM9X6ZxxKT0VNp4X3t4G3xs5L9LVWvYMh7KdwEa03lp-SEDAjh98sRB80FLzusbtjUaYpIlK3fOuHMV3pZnIWB-m907n3HhkUzti34qL2oAdXNao5OOPQndFm1mxpiVDGvSTISMxBdDn46drD1XPibNieZouR4mdziv0YUXPcSZEJQosX8GdW99pZ2h5-nVZjJDUD3J_8tSfgLrUbzNM9pbXQt_4SPeephUSYkaLiFZSKKqXmJq5PYIUCBf5cCzOduXdQ7tgACW8`, 
+                Authorization: `Bearer ${nextToken}`, 
             },
         });
         return response.data;               

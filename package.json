@@ -18,6 +18,7 @@
   "homepage": "https://github.com/vickyTechFriendly/parking-ALB#readme",
   "dependencies": {
     "axios": "^1.4.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security"
   }
 }
