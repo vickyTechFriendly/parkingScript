@@ -17,7 +17,7 @@ async function getOcupacion(){
     try{
         const response = await axios.get(url, { 
             headers: {
-                Authorization: `Bearer ${process.env.nextToken}`, 
+                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTIzNTI5MzUsImV4cCI6MTY5MjM1NjUzNSwicm9sZXMiOlsiUk9MRV9PQ0NVUEFUSU9OIl0sInVzZXJuYW1lIjoiYXl1bnRhbWllbnRvYWxiYWNldGUifQ.xDqPHE96m4ruKHcgBrHFMEjLXIOC1IC0tJ0XHqmUPFDEb8AcUtXD1hoovywQJ7Ld2O7oQNm61DOVr0qmqfCamxH3LlbU4EaeTqOqYKgbPp4TY43QlwbuA1AbzJDSXimjZhlE-CFu2HKuJH5fPf9DTEqN8p7X4sWku18iPZvTjHGQrMk5O9YEisiOkOHtV0h8V4UJbfSLLrJtA2s8unOhoiReYMLKoTmNlx1VVBPNn1WtWBPv3dKWBL_ZW5tGyf64FUTqC-NQUMtSlUrG5BUwhtc4IQl2n_QqPmH4EQVwcKiQP3nAIuWiGeEezW5ECAW4oXCj22dqDCCgGL-JgbQZqzZwRleF1KyoU8NhYmza5jb9PR2KDgFnMsnuzkcXxS1zbWYxiVF7ZLCIMhakT5GAtx_qx0Ug2qGFM9X6ZxxKT0VNp4X3t4G3xs5L9LVWvYMh7KdwEa03lp-SEDAjh98sRB80FLzusbtjUaYpIlK3fOuHMV3pZnIWB-m907n3HhkUzti34qL2oAdXNao5OOPQndFm1mxpiVDGvSTISMxBdDn46drD1XPibNieZouR4mdziv0YUXPcSZEJQosX8GdW99pZ2h5-nVZjJDUD3J_8tSfgLrUbzNM9pbXQt_4SPeephUSYkaLiFZSKKqXmJq5PYIUCBf5cCzOduXdQ7tgACW8`, 
             },
         });
         return response.data;               
