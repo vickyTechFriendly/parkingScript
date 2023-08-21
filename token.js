@@ -6,8 +6,8 @@ async function getToken() {
     const url = `https://data.apk2.es/api/login`;
     try {
         const response = await axios.post(url, {
-            username: 'ayuntamientoalbacete',
-            secret: 'f1bdef58e9e0a23f77e8f31bfb3b451fca41dfb53b65292395018d0e6b85427c',
+            username: process.env.username,
+            secret: process.env.secret,
         });
         return response.data.token;
     } catch (error) {
@@ -28,12 +28,11 @@ async function updateTokenInScript () {
 
 
     const scriptContent = fs.readFileSync('parkingScript.js', 'utf8');
-    const escapedToken = data.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+    const escapedToken = data.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&'); //escape para que no se interprete como regex
     const updatedScript = scriptContent.replace(/let nextToken = '.*';/, `let nextToken = '${escapedToken}';`);
     fs.writeFileSync('parkingScript.js', updatedScript, 'utf8');
 
     console.log("Token actualizado en parkingScript.js");
-
 
 };
 
@@ -41,7 +40,7 @@ async function updateTokenInScript () {
 updateTokenInScript();
 
 // Ejecutar la actualización
-const intervalTime = 55 * 60 * 1000;
+const intervalTime = 50 * 60 * 1000;
 setInterval(async () => {
     await updateTokenInScript();
 }, intervalTime);
