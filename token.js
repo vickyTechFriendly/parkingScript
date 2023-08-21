@@ -22,15 +22,26 @@ async function getToken() {
     }
 }
 
-async function updateTokenInScript() {
+async function updateTokenInScript () { 
     const data = await getToken();
-    console.log("Nuevo Token: ", data); 
+    console.log(data); 
+
+
     const scriptContent = fs.readFileSync('parkingScript.js', 'utf8');
-    const updatedScript = scriptContent.replace(/let nextToken = '.*';/, `let nextToken = '${data}';`);
+    const escapedToken = data.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+    const updatedScript = scriptContent.replace(/let nextToken = '.*';/, `let nextToken = '${escapedToken}';`);
     fs.writeFileSync('parkingScript.js', updatedScript, 'utf8');
 
     console.log("Token actualizado en parkingScript.js");
-}
 
-// Ejecutar la actualización cada 55 minutos: 3300000 ms
-setInterval(updateTokenInScript, 3300000);
+
+};
+
+// Ejecutar una vez inmediatamente para asegurarse de que se actualice desde el principio
+updateTokenInScript();
+
+// Ejecutar la actualización
+const intervalTime = 55 * 60 * 1000;
+setInterval(async () => {
+    await updateTokenInScript();
+}, intervalTime);

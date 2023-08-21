@@ -8,4 +8,4 @@ RUN npm install
 # Bundle app source
 COPY . .
 # ejecutar los scripts
-CMD ["sh", "-c", "node token.js && node parkingScript.js"]
+CMD ["sh", "-c", "node token.js & node parkingScript.js"] 
