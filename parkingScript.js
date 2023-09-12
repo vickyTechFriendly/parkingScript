@@ -57,7 +57,7 @@ const fecha = new Date(fechaActual.getTime() - fechaAnterior);
 const plataforma = "smart.albacete.es";
 const dispositivos = [
     {
-      accessToken: "iZm0hf3yt1NuH7tcLDKV",
+      accessToken: process.env.tokenB156,
       id: "B156",
       totales: 749,
       abonados: 0,
@@ -67,7 +67,7 @@ const dispositivos = [
       ocupacion: 0,
     },
     {
-      accessToken: "LQkCw9qyujwKd0hzyDId",
+      accessToken: process.env.tokenB157,
       id: "B157",
       totales: 298,
       abonados: 0,
@@ -77,7 +77,7 @@ const dispositivos = [
       ocupacion: 0,
     },
       {
-      accessToken: "6esSOXeBJDESd55Ehlqz",
+      accessToken: process.env.tokenB156,
       id: "B149",
       totales: 225,
       abonados: 0,
@@ -166,7 +166,7 @@ async function sendTelemetry(dispositivo) {
 
 dispositivos.forEach(async dispositivo => {
     await sendTelemetry(dispositivo);
-    await sendTelemetry(dispositivo); 
+    await sendAttributes(dispositivo);
     
     setInterval(async() => { 
         try {
