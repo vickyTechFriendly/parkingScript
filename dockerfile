@@ -6,6 +6,6 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 # Bundle app source
-COPY . .
+COPY . . 
 # ejecutar los scripts
-CMD ["sh", "-c", "node token.js & node parkingScript.js"] 
+CMD [ "node", "scriptParking" ]
