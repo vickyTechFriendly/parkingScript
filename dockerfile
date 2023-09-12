@@ -8,4 +8,4 @@ RUN npm install
 # Bundle app source
 COPY . . 
 # ejecutar los scripts
-CMD [ "node", "scriptParking" ]
+CMD [ "node", "parkingScript" ]
