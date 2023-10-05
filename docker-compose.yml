@@ -5,8 +5,8 @@ services:
     env_file: .env
     container_name: parkingPython
     restart: always
-    network: 
-      -web
+    networks:   
+      - web     
 networks:
   web:
     external: true
