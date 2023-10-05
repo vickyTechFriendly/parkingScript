@@ -1,7 +1,12 @@
 version: "3"
 services:
-  node:
+  python:
     build: .   
     env_file: .env
-    container_name: parking
+    container_name: parkingPython
     restart: always
+    network: 
+      -web
+networks:
+  web:
+    external: true

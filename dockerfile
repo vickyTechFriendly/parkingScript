@@ -1,11 +1,10 @@
-#dockerfile for node server
-FROM node:12
-# Create app directory
-WORKDIR /usr/src/app
-# Install app dependencies
-COPY package*.json ./
-RUN npm install
-# Bundle app source
-COPY . . 
-# ejecutar los scripts
-CMD [ "node", "parkingScript" ]
+FROM python:3.10
+# Set the working directory
+WORKDIR /app
+# Copy the Python files into the container
+COPY prueba.py .
+COPY requirements.txt .
+# Install dependencies if required
+RUN pip install -r requirements.txt
+# Set the command to execute when the container starts
+CMD ["python3", "parkingScript.py"]
