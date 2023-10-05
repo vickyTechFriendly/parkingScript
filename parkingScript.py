@@ -119,7 +119,7 @@ def send_attributes(dispositivo):
             "accept": "application/json",
             "Content-Type": "application/json"
         }
-        url = f"https://{platform}/api/v1/{dispositivo['accessToken']}/attributes"
+        url = f"http://{platform}/api/v1/{dispositivo['accessToken']}/attributes"
         response = requests.post(url, json=attributes, headers=headers, verify=False)
         response.raise_for_status()
     except requests.exceptions.RequestException as error:
@@ -163,7 +163,7 @@ def send_telemetry(dispositivo):
             "accept": "application/json",
             "Content-Type": "application/json"
         }
-        url = f"https://{platform}/api/v1/{dispositivo['accessToken']}/telemetry"
+        url = f"http://{platform}/api/v1/{dispositivo['accessToken']}/telemetry"
         response = requests.post(url, json=telemetry_data, headers=headers, verify=False)
         response.raise_for_status()
         print(f"Datos de {dispositivo['id']} enviados correctamente")
