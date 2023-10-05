@@ -39,9 +39,9 @@ delta = datetime.timedelta(hours=2)
 current_date = current_date - delta
 previous_date = current_date - datetime.timedelta(minutes=5)
 
-
 # Petición HTTP (GET) a la API
 def get_occupation():
+
     cecos = "B149;B156;B157"
     from_time = previous_date.strftime("%Y-%m-%d %H:%M:%S")
     to_time = current_date.strftime("%Y-%m-%d %H:%M:%S")
@@ -49,7 +49,9 @@ def get_occupation():
     next_token = get_token()
     
     url = f"https://data.apk2.es/api/parking-occupation/?cecos={cecos}&from={from_time}&to={to_time}"
-    
+
+    print (url)
+
     try:
         headers = {
             "Authorization": f"Bearer {next_token}"

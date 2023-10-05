@@ -10,4 +10,3 @@ RUN pip install -r requirements.txt
 #ENV PYTHONWARNINGS="ignore"
 # Set the command to execute when the container starts
 CMD ["python3",  "-u", "parkingScript.py"]
-

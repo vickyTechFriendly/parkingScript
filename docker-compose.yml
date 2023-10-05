@@ -5,6 +5,8 @@ services:
     env_file: .env
     container_name: parkingPython
     restart: always
+    environment:   
+      TZ: Europe/Madrid
     networks:   
       - web     
 networks:
