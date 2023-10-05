@@ -137,7 +137,6 @@ def send_telemetry(dispositivo):
             if item["parking"] not in parking_data_map or datetime.datetime.fromisoformat(item["time"]).strftime("%Y-%m-%d %H:%M:%S") > datetime.datetime.fromisoformat(parking_data_map[item["parking"]]["time"]).strftime("%Y-%m-%d %H:%M:%S"):
                 parking_data_map[item["parking"]] = item
 
-        print(parking_data_map)
         parking_data = parking_data_map[dispositivo["id"]]
 
         if parking_data:

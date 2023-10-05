@@ -6,5 +6,8 @@ COPY parkingScript.py .
 COPY requirements.txt .
 # Install dependencies if required
 RUN pip install -r requirements.txt
+# Set environment variable to suppress warnings
+#ENV PYTHONWARNINGS="ignore"
 # Set the command to execute when the container starts
-CMD ["python3", "parkingScript.py"]
+CMD ["python3",  "-u", "parkingScript.py"]
+
