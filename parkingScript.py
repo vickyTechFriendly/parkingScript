@@ -34,14 +34,14 @@ def get_token():
             print("Error al realizar la petición:", error)
         raise error
 
-current_date = datetime.datetime.now()
-delta = datetime.timedelta(hours=2)
-current_date = current_date - delta
-previous_date = current_date - datetime.timedelta(minutes=5)
+
 
 # Petición HTTP (GET) a la API
 def get_occupation():
-
+    current_date = datetime.datetime.now()
+    delta = datetime.timedelta(hours=2)
+    current_date = current_date - delta
+    previous_date = current_date - datetime.timedelta(minutes=5)
     cecos = "B149;B156;B157"
     from_time = previous_date.strftime("%Y-%m-%d %H:%M:%S")
     to_time = current_date.strftime("%Y-%m-%d %H:%M:%S")
@@ -74,7 +74,7 @@ def get_occupation():
             print("Error al realizar la petición:", error)
         raise error
 
-platform = "plataforma:9090"
+platform = "smart.albacete.es"
 
 devices = [
     {
@@ -119,7 +119,7 @@ def send_attributes(dispositivo):
             "accept": "application/json",
             "Content-Type": "application/json"
         }
-        url = f"http://{platform}/api/v1/{dispositivo['accessToken']}/attributes"
+        url = f"https://{platform}/api/v1/{dispositivo['accessToken']}/attributes"
         response = requests.post(url, json=attributes, headers=headers, verify=False)
         response.raise_for_status()
     except requests.exceptions.RequestException as error:
@@ -163,7 +163,7 @@ def send_telemetry(dispositivo):
             "accept": "application/json",
             "Content-Type": "application/json"
         }
-        url = f"http://{platform}/api/v1/{dispositivo['accessToken']}/telemetry"
+        url = f"https://{platform}/api/v1/{dispositivo['accessToken']}/telemetry"
         response = requests.post(url, json=telemetry_data, headers=headers, verify=False)
         response.raise_for_status()
         print(f"Datos de {dispositivo['id']} enviados correctamente")
